@@ -6,40 +6,455 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="date=no,telephone=no">
     <title>GLO Philosophy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <style>
-      html {
-        height: 100%;
+      .container,
+      .wrap {
+        margin: auto;
+        max-width: 800px;
       }
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: "Helvetica", sans-serif;
-        font-size: 16px;
-        color: #333;
-        height: 100%;
+      .ic {
+        height: 16px;
+        width: 16px;
+        opacity: 0.3;
       }
-      .box {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+      .top {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
       }
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 0;
+        .top > h1 {
+          margin-bottom: 1rem;
+        }
+        .top a {
+          margin-top: 1rem;
+        }
+      .slick-prev {
+        left: -10px;
       }
-      h2 {
-        margin-top: 0.5rem;
-        color: #888;
-        font-weight: normal;
+      .slick-next {
+        right: -10px;
+      }
+      .slick-prev:before {
+        color: #888; 
+      }
+      .slick-next:before {
+        color: #888; 
+      }
+      .results {
+        padding: 0 1.25rem;
+      }
+      .slick-slide {
+        height: 400px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+        .slick-slide img {
+          max-width: 100%;
+          max-height: 100%;
+          margin: auto;
+        }
+      .sub {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+        .sub:first-child {
+          margin-top: 0;
+        }
+      p {
+        margin-bottom: 0.5rem;
+      }
+      .top-header {
+        font-size: 2rem;
+      }
+      .reg-header,
+      .reg {
+        font-size: 1.25rem;
+      }
+      @media only screen and (max-width: 800px) {
+        .results {
+          padding: 0;
+        }
+        .slick-slide {
+          height: 325px;
+        }
+        .top {
+          margin-top: 0;
+        }
+        .top-header {
+          font-size: 1.5rem;
+        }
+        .reg {
+          font-size: 1.1rem;
+        }
+        .button {
+          width: 100%;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="box">
-      <h1>GLO Philosophy</h1>
-      <h2>Under maintenance... will be back in a few hours</h2>
+
+    <div class="container">
+      <div class="card top">
+        <div class="card-image">
+          <img src="img/top.png">
+        </div>
+        <div class="card-header">
+          <div class="card-header-title top-header">GLO Philosophy</div>
+        </div>
+        <div class="card-content">
+          <p class="reg">GLO Philosophy explores Marxist philosophy and traditional ideals. You'll be invited to the GLOGANG private forum, the farthest most radical reach of the Red Pill. A true Red Pill community safe from Normtards, Boomers, Non-Lifters, Petersonians, Red Pill Betas and Illiterates. Non Readers Will Be Purged. It’s a discussion group with over 500 members, and Free.</p>
+          <div class="buttons are-medium">
+            <a class="button is-primary has-text-weight-bold" href="#signup">Sign up</a>
+            <a class="button is-info is-outlined has-text-weight-semibold" href="#testimonials">Read Testimonials</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="signup">
+        <div class="card-header">
+          <div class="card-header-title reg-header">Sign up for GLO Philosophy and Fitness Coaching</div>
+        </div>
+        <div class="card-content">
+          <form method="POST" action="https://api.glophilosophy.org/coaching">
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <label class="label has-text-weight-semibold">First Name</label>
+                  <p class="control is-expanded has-icons-left">
+                    <input id="name" name="name" class="input" type="text" placeholder="First Name">
+                    <span class="icon is-small is-left">
+                      <img class="ic" src="img/user.png">
+                    </span>
+                  </p>
+                  <p id="name-help" class="help is-danger is-hidden"></p>
+                </div>
+                <div class="field">
+                  <label class="label has-text-weight-semibold">Email</label>
+                  <p class="control is-expanded has-icons-left">
+                    <input id="email" name="email" class="input" type="email" placeholder="Email">
+                    <span class="icon is-small is-left">
+                      <img class="ic" src="img/mail.png">
+                    </span>
+                  </p>
+                  <p id="email-help" class="help is-danger is-hidden"></p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <label class="label has-text-weight-semibold">USA Phone # or Skype ID</label>
+                  <p class="control is-expanded has-icons-left">
+                    <input id="phone" name="phone" class="input" type="text" placeholder="Phone or Skype">
+                    <span class="icon is-small is-left">
+                      <img class="ic" src="img/phone.png">
+                    </span>
+                  </p>
+                  <p id="phone-help" class="help is-danger is-hidden"></p>
+                </div>
+                <div class="field">
+                  <label class="label has-text-weight-semibold">Time Zone</label>
+                  <p class="control is-expanded has-icons-left">
+                    <input id="zone" name="zone" class="input" type="text" placeholder="Time Zone">
+                    <span class="icon is-small is-left">
+                      <img class="ic" src="img/timezone.png">
+                    </span>
+                  </p>
+                  <p id="zone-help" class="help is-danger is-hidden"></p>
+                </div>
+                <div class="field">
+                  <label class="label has-text-weight-semibold">When should I call?</label>
+                  <p class="control is-expanded has-icons-left">
+                    <input id="when" name="when" class="input" type="text" placeholder="When should I call?">
+                    <span class="icon is-small is-left">
+                      <img class="ic" src="img/time.png">
+                    </span>
+                  </p>
+                  <p id="when-help" class="help is-danger is-hidden"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label has-text-weight-semibold">Message</label>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <textarea id="about" name="about" class="textarea" placeholder="Who are you? What are your goals? How can I help you?"></textarea>
+                  </div>
+                  <p id="about-help" class="help is-danger"></p>
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" id="meta" name="meta" value="">
+
+            <div class="field">
+              <p class="has-text-grey">(Your information is sent directly to GLO and he will contact you at your desired time.)</p>
+              <div class="g-recaptcha" data-sitekey="6LfoB64ZAAAAAPlCWSU-3sSJbbtZ1GRoXJol4A2H"></div>
+              <br>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input id="submit" type="submit" class="button is-primary is-medium has-text-weight-bold" value="Submit"> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <br>
+
+      <div class="card" id="results">
+        <div class="card-header">
+          <div class="card-header-title reg-header">Fitness Results</div>
+        </div>
+        <div class="card-content">
+          <div class="results">
+            <div><img src="img/results_1.jpeg"></div>
+            <div><img src="img/results_2.jpeg"></div>
+            <div><img src="img/results_3.jpeg"></div>
+            <div><img src="img/results_4.jpeg"></div>
+            <div><img src="img/results_5.png"></div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      
+
+      <div class="card" id="testimonials">
+        <div class="card-header">
+          <div class="card-header-title reg-header">Testimonial - #1</div>
+        </div>
+        <div class="card-content">
+          <img src="img/scrots.jpeg">
+          <br>
+          <br>
+          <p>I started coaching calls with GLO 6 months ago. Over time, he encouraged me to read Zizek’s “Welcome to the Desert of the Real” and books on fitness. He shared videos and articles which we sat down and discussed in detail. Whenever I’d ask him basic questions like “Hey, my heart is broken, wtf do I do?”, he never gave me normative responses. There are no straight short-cuts and red pills you can ingest to push out all the feminized traits you’ve been conditioned into over the course of your life. Learning comes slow. Here are some of the things you can expect:</p>
+
+          <p class="sub has-text-weight-semibold reg">1) Value-driven discussions and approaching the source:</p>
+          <p>He will sit down and argue with you about things he has asked you to read/watch. If he is spending an hour or two a week with you, he tries his best to give you that hour’s worth of value, and he will constantly readjust the frame of the discussion in order to ascertain that you are, in fact, getting your value for your dollar. He will get you out of reading shitty derivative blog posts and actually read source material, ranging from philosophy to fitness.</p> 
+
+          <p class="sub has-text-weight-semibold reg">2) Tailored to your perspective:</p>
+          <p>We are very different human beings. We’ve talked about the utility of religion for months, and he has successfully lifted me out of the nihilism phase where my lack of structure was threatening to destabilize me completely. The importance of having and embracing structures is something that has helped me a lot over the last few months of being depressed. Also, it doesn’t matter how smart/stupid you are, he will talk to you at your level and try to get you to a better mental framework/intellectual level.</p> 
+        
+          <p class="sub has-text-weight-semibold reg">3) Workouts:</p>
+          <p>I feel like I don’t really have to mention this, but he will write down personal workouts for you that will focus on what your personal bodily needs are. In the last 4 months, I have put on a good amount of muscle and the confidence shows in how people treat me irl. I have matured into 4 days a week workouts, that specifically address my personal physical growth.</p> 
+        
+          <p class="sub has-text-weight-semibold reg">4) Personal life examples:</p>
+          <p>Whenever I hit a roadblock and felt myself extremely depressed regarding life and my unicorn oneitis, He would prop up his own shitty examples of where he came from, how he started. His irl examples have helped me realize that we are all ultimately human. While he always has a no-nonsense attitude regarding our sessions, he understands emasculated men, and how absolutely crippled some of us are mentally. Talking to him helped me realize how many personal sacrifices come before one is able to lift themselves into a better life, where you don’t spend hours each day planning to blow out your brains.</p> 
+        
+          <p class="sub has-text-weight-semibold reg">5) This is just the starting point:</p>
+          <p>Ultimately, GLO isn’t selling you the red pill; his traditional course is designed to go beyond that. Essentially, he will encourage you to embrace critical thinking in your own lives, and help you get to a better place. Coaching is meant to make you into a stronger individual, physically and mentally.</p> 
+          <p>I have a long way to go, and I understand that change comes slowly, and that creating a purpose for myself will take time. I want to get there, and he has provided a great inertia that I honestly was lacking for years. While he does get paid for his coaching, my interactions with him have taught me this – He believes that a real alpha (he hates the alpha/beta dichotomy btw, and his usage his mostly ironic) is someone who tries to help people and make their lives better. This is basically what he is trying to do – help depressed men from trying to pull the trigger and ushering in meaningful change into their lives.</p>
+        
+          <p class="sub has-text-weight-semibold reg">What is GLOGANG?</p>
+          <p>A major part of what GLOGANG provides is a social outlet for the sane. What I mean by that is that in most of our day to day lives we’re interacting with people who are stuck in the matrix and they don’t even know it.</p>
+
+          <p>Yet interacting doesn’t scratch the itch of socializing. Something is wrong and you can sense it. Maybe anyone in a blue collar field has a slight chance of some genuine interaction but I know for our boys in the corporate machine this ain’t the case.</p>
+
+          <p>It always blew my mind how much of people’s interactions revolve around sports, and celebrities. Fuck I love music but It’s not as if it forms the core of my identity – simply a piece of it.</p>
+
+          <p>Why the fuck do my coworkers care about some dude and how well he can play a game? Knowing his stats off by heart. While being in the same position and making the same wage as he did for three, four, five, fuck I’ve seen even ten years. How is this a man? How is this a way to exist? This realization is unsettling. And since you’re (currently) reliant on this system to eat it’s not as if you can call out your coworkers for being losers.</p>
+
+          <p>It creates a mental dissonance between yourself and the world. And frankly that’s a frightening thought. We are not meant to be solitary creatures. We as men desire a tribe that can challenge us and that we can actualize within. A group can achieve much more than a individuals working on their own and this group is how we do so. Lift and be strong. Read and be studied. It is through the iron and the word that we can persevere through these hard times.</p>
+        
+        </div>
+      </div>
+      
+      <br>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-title reg-header">GLO on how he started mentoring:</div>
+        </div>
+        <div class="card-content">
+          <p>"In 2014 I got bored of watching YouTube videos and playing StarCraft 2 so I started Skyping dudes playing recreational therapist. I thought that would be more entertaining like a reality TV video game.</p>
+
+          <p>Anyway I Skyped close to 1000 people in 5 years. Law school sort of prepared me for manipulating dudes out of depression and into the gym. I know this community better than anyone because I’ve actually had the pleasure to speak individually with them.</p>
+
+          <p>If I called anyone a fagot retard it’s because I actually care a lot.. I want to slap the kids here awake because there is a huge bullshit train coming right at them and they need to save themselves."</p>
+          <br>
+          <div class="buttons are-medium">
+            <a class="button is-primary has-text-weight-bold" href="#signup">Sign up</a>
+          </div>
+
+        </div>
+      </div>
+
+      <br>
+
+      <div class="card"> 
+        <div class="card-header">
+          <div class="card-header-title reg-header">Testimonial - #2</div>
+        </div>
+        <div class="card-content">
+          <p class="sub has-text-weight-semibold reg">What was your first impression of your GLO Philosophy coaching calls?</p>
+          <p>First impression was that the mane was cool, but I already knew that cause I read the posts. He’s also 100 years ahead of everyone intellectually. The workouts are also an integral part of my life and the best bodybuilding programming I’ve ever encountered. I’m almost ashamed to take off my shirt cause I’m too beautiful.</p>
+
+          <p class="sub has-text-weight-semibold reg">What do you mean by 100 years ahead of everyone intellectually? He’s obviously very well read. Is that the extent of it? Accumulation of knowledge?</p>
+          <p>Yeah. His depth of study is unmatched by academia.</p>
+          
+          <p class="sub has-text-weight-semibold reg">Let’s imagine for a moment that we’ve gone back in time before your first calls, and imagine that you decided to do the readings without ever contacting GLO Philosophy for coaching. What would be missing in your understanding of the material?</p>
+          <p>I’d be missing the lateral thinking aspect, how one set of ideas relate to another. How ideas of the left and the right can be synthesized to create new possibilities. How philosophy relates to psychoanalysis, and seamlessly tie in together. I was also exposed to a lot of concepts that I was personally in search of for a long time. All I knew was that something was wrong and I was inconsolably upset about the trajectory that conventional wisdom would have me take. But I needed someone who’s actively tackling these problems to fully understand and develop perspective. I wanted some dense challenging material to study. I hated school cause I felt like I was being babysat with a bunch of dumb kids.</p>
+          
+          <p class="sub has-text-weight-semibold reg">Some of GLOGANG are young men navigating their place in the sexual marketplace and are learning how to get their needs with girls met— have the concepts you’ve learned in the readings helped you in this arena of your life?</p>
+          <p>Becoming fluent in psychoanalysis and philosophy basically makes you the Terminator. I could AMOG the president and take his bitch. It also made me a better writer. I was writing and doing stand up before I called.</p>
+          
+          <p class="sub has-text-weight-semibold reg">So, say… 2 years ago, before you got coaching, paint me a picture of what your life was like. A day in the life of you back then compared to today; after all you’ve learned and your body improving through the fitness regimen.</p>
+          <p>2 years ago, shitty, I was trying to figure out how to get through the day and practice performing without talking to anyone. I felt deeply alienated cause all I cared about was developing my skills, and normal people are more interested in party drugs. I was in decent shape but needed advanced instruction. The best I could do on my own. Now I’m teaching philosophy and writing professionally and have loads of ideas for creative work and am a certified qt pie, cause my physique is unbelievable.</p>
+          
+          <p class="sub has-text-weight-semibold reg">When you mention alienation and how all the normal people all around you were more interested in partying and drugs. I think about how the GLOGANG forum is the polar opposite of that situation. I think it can be very lonely when you’re surrounded by people you can’t relate to at all. What’s different about the GLOGANG forum, compared to like… the comment sections of reddit, or even your own real life friend group?</p>
+          <p>Everything. It’s intellectually rigorous and unpretentious.</p>
+        </div>
+      </div>
+
+      <br>
+
     </div>
+    
+    <br>
+    
+    <div class="footer">
+      <div class="container">
+        <p>&copy; GLOPhilosophy.org 2020</p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.results').slick({
+          dots: true,
+          responsive: [{
+            breakpoint: 800,
+            settings: {
+              arrows: false,
+            },
+          }],
+        })
+
+        fetch("https://www.cloudflare.com/cdn-cgi/trace")
+          .then(res => res.text())
+          .then(res => {
+            $("#meta").val(res)
+          })
+
+        $("#name").on("keyup", e => {
+          if($("#name").hasClass("is-danger")) {
+            $("#name").removeClass("is-danger")
+            $("#name-help").addClass("is-hidden")
+          }
+          if(!$("#name").hasClass("is-success") && $("#name").val().length > 0) {
+            $("#name").addClass("is-success")
+          }
+        })
+        
+        $("#email").on("keyup", e => {
+          if($("#email").hasClass("is-danger")) {
+            $("#email").removeClass("is-danger")
+            $("#email-help").addClass("is-hidden")
+          }
+          if(!$("#email").hasClass("is-success") && $("#email").val().length > 0) {
+            $("#email").addClass("is-success")
+          }
+        })
+        
+        $("#phone").on("keyup", e => {
+          if($("#phone").hasClass("is-danger")) {
+            $("#phone").removeClass("is-danger")
+            $("#phone-help").addClass("is-hidden")
+          }
+          if(!$("#phone").hasClass("is-success") && $("#phone").val().length > 0) {
+            $("#phone").addClass("is-success")
+          }
+        })
+        
+        $("#zone").on("keyup", e => {
+          if($("#zone").hasClass("is-danger")) {
+            $("#zone").removeClass("is-danger")
+            $("#zone-help").addClass("is-hidden")
+          }
+          if(!$("#zone").hasClass("is-success") && $("#zone").val().length > 0) {
+            $("#zone").addClass("is-success")
+          }
+        })
+        
+        $("#when").on("keyup", e => {
+          if($("#when").hasClass("is-danger")) {
+            $("#when").removeClass("is-danger")
+            $("#when-help").addClass("is-hidden")
+          }
+          if(!$("#when").hasClass("is-success") && $("#when").val().length > 0) {
+            $("#when").addClass("is-success")
+          }
+        })
+        
+        $("#about").on("keyup", e => {
+          if($("#about").hasClass("is-danger")) {
+            $("#about").removeClass("is-danger")
+            $("#about-help").addClass("is-hidden")
+          }
+          if(!$("#about").hasClass("is-success") && $("#about").val().length > 0) {
+            $("#about").addClass("is-success")
+          }
+        })
+
+        $("#submit").on("click", e => {
+          const data = {
+            name:  $("#name").val(),
+            email: $("#email").val(),
+            phone: $("#phone").val(),
+            zone:  $("#zone").val(),
+            when:  $("#when").val(),
+            about: $("#about").val(),
+          }
+          if(data.name.length == 0) {
+            e.preventDefault()
+            $("#name").addClass("is-danger")
+            $("#name-help").removeClass("is-hidden")
+            $("#name-help").text("Please enter a first name.")
+          }
+          if(!data.email.includes("@") || !data.email.includes(".")) {
+            e.preventDefault()
+            $("#email").addClass("is-danger")
+            $("#email-help").removeClass("is-hidden")
+            $("#email-help").text("Please enter a valid email.")
+          }
+          if(data.phone.length == 0) {
+            e.preventDefault()
+            $("#phone").addClass("is-danger")
+            $("#phone-help").removeClass("is-hidden")
+            $("#phone-help").text("Please enter a phone # / Skype.")
+          }
+          if(data.zone.length == 0) {
+            e.preventDefault()
+            $("#zone").addClass("is-danger")
+            $("#zone-help").removeClass("is-hidden")
+            $("#zone-help").text("Please enter a timezone.")
+          }
+          if(data.when.length == 0) {
+            e.preventDefault()
+            $("#when").addClass("is-danger")
+            $("#when-help").removeClass("is-hidden")
+            $("#when-help").text("Please enter a time to call.")
+          }
+          if(data.about.length == 0) {
+            e.preventDefault()
+            $("#about").addClass("is-danger")
+            $("#about-help").removeClass("is-hidden")
+            $("#about-help").text("Please enter at least a little bit about you.")
+          }
+        })
+      });
+    </script>
   </body>
 </html>
