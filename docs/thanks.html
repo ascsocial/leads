@@ -3,200 +3,38 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="date=no,telephone=no">
-    <title>Thank You</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <style>
-      .container,
-      .wrap {
-        margin: auto;
-        max-width: 800px;
-      }
-      .top {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-      }
-        .top > h1 {
-          margin-bottom: 1rem;
-        }
-        .top a {
-          margin-top: 1rem;
-        }
-      .top-header {
-        font-size: 2rem;
-      }
-      @media only screen and (max-width: 800px) {
-        .top {
-          margin-top: 0;
-        }
-        .top-header {
-          font-size: 1.5rem;
-        }
-      }
-    </style>
+    <title>GLO Philosophy - Thanks</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/tsparticles@1.26.3/dist/tsparticles.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171748037-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-171748037-1');
     </script>
   </head>
   <body>
-
-    <div class="container">
-      <div class="card top">
-        <div class="card-image">
-          <img src="img/top.png">
-        </div>
-        <div class="card-header">
-          <div class="card-header-title top-header">Thank you!</div>
-        </div>
-        <div class="card-content">
-          <p class="reg">GLO will contact you soon.</p>
-        </div>
-      </div>
+    <div class="wrap">
+      <div id="network"></div>
+      <header>
+        <h1>Thank You</h1>
+        <h2>GLO will contact you soon.</h2>
+      </header>
     </div>
-    
-    <br>
-    
-    <div class="footer">
-      <div class="container">
-        <p>&copy; GLOPhilosophy.org 2020</p>
-      </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.results').slick({
-          dots: true,
-          responsive: [{
-            breakpoint: 800,
-            settings: {
-              arrows: false,
-            },
-          }],
+    <script>
+      tsParticles
+        .loadJSON("network", "network.json")
+        .then((container) => {
+          console.log("callback - tsparticles config loaded");
         })
-
-        fetch("https://www.cloudflare.com/cdn-cgi/trace")
-          .then(res => res.text())
-          .then(res => {
-            $("#meta").val(res)
-          })
-
-        $("#name").on("keyup", e => {
-          if($("#name").hasClass("is-danger")) {
-            $("#name").removeClass("is-danger")
-            $("#name-help").addClass("is-hidden")
-          }
-          if(!$("#name").hasClass("is-success") && $("#name").val().length > 0) {
-            $("#name").addClass("is-success")
-          }
-        })
-        
-        $("#email").on("keyup", e => {
-          if($("#email").hasClass("is-danger")) {
-            $("#email").removeClass("is-danger")
-            $("#email-help").addClass("is-hidden")
-          }
-          if(!$("#email").hasClass("is-success") && $("#email").val().length > 0) {
-            $("#email").addClass("is-success")
-          }
-        })
-        
-        $("#phone").on("keyup", e => {
-          if($("#phone").hasClass("is-danger")) {
-            $("#phone").removeClass("is-danger")
-            $("#phone-help").addClass("is-hidden")
-          }
-          if(!$("#phone").hasClass("is-success") && $("#phone").val().length > 0) {
-            $("#phone").addClass("is-success")
-          }
-        })
-        
-        $("#zone").on("keyup", e => {
-          if($("#zone").hasClass("is-danger")) {
-            $("#zone").removeClass("is-danger")
-            $("#zone-help").addClass("is-hidden")
-          }
-          if(!$("#zone").hasClass("is-success") && $("#zone").val().length > 0) {
-            $("#zone").addClass("is-success")
-          }
-        })
-        
-        $("#when").on("keyup", e => {
-          if($("#when").hasClass("is-danger")) {
-            $("#when").removeClass("is-danger")
-            $("#when-help").addClass("is-hidden")
-          }
-          if(!$("#when").hasClass("is-success") && $("#when").val().length > 0) {
-            $("#when").addClass("is-success")
-          }
-        })
-        
-        $("#about").on("keyup", e => {
-          if($("#about").hasClass("is-danger")) {
-            $("#about").removeClass("is-danger")
-            $("#about-help").addClass("is-hidden")
-          }
-          if(!$("#about").hasClass("is-success") && $("#about").val().length > 0) {
-            $("#about").addClass("is-success")
-          }
-        })
-
-        $("#submit").on("click", e => {
-          const data = {
-            name:  $("#name").val(),
-            email: $("#email").val(),
-            phone: $("#phone").val(),
-            zone:  $("#zone").val(),
-            when:  $("#when").val(),
-            about: $("#about").val(),
-          }
-          if(data.name.length == 0) {
-            e.preventDefault()
-            $("#name").addClass("is-danger")
-            $("#name-help").removeClass("is-hidden")
-            $("#name-help").text("Please enter a first name.")
-          }
-          if(!data.email.includes("@") || !data.email.includes(".")) {
-            e.preventDefault()
-            $("#email").addClass("is-danger")
-            $("#email-help").removeClass("is-hidden")
-            $("#email-help").text("Please enter a valid email.")
-          }
-          if(data.phone.length == 0) {
-            e.preventDefault()
-            $("#phone").addClass("is-danger")
-            $("#phone-help").removeClass("is-hidden")
-            $("#phone-help").text("Please enter a phone # / Skype.")
-          }
-          if(data.zone.length == 0) {
-            e.preventDefault()
-            $("#zone").addClass("is-danger")
-            $("#zone-help").removeClass("is-hidden")
-            $("#zone-help").text("Please enter a timezone.")
-          }
-          if(data.when.length == 0) {
-            e.preventDefault()
-            $("#when").addClass("is-danger")
-            $("#when-help").removeClass("is-hidden")
-            $("#when-help").text("Please enter a time to call.")
-          }
-          if(data.about.length == 0) {
-            e.preventDefault()
-            $("#about").addClass("is-danger")
-            $("#about-help").removeClass("is-hidden")
-            $("#about-help").text("Please enter at least a little bit about you.")
-          }
-        })
-      });
+        .catch((error) => {
+          console.error(error);
+        });
     </script>
   </body>
 </html>
