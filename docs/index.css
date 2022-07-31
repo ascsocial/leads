@@ -112,7 +112,12 @@ main {
   line-height: 1.5;
 }
 
+.reviews {
+  width: 100%;
+}
+
 .reviews img {
+  margin: 0.5rem 0;
   width: 100%;
   height: auto;
 }
