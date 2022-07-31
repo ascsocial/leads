@@ -112,6 +112,11 @@ main {
   line-height: 1.5;
 }
 
+.result img {
+  width: 100%;
+  height: auto;
+}
+
 .results {
   display: grid;
   grid-template-columns: 1fr 1fr;
